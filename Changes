@@ -1,0 +1,6 @@
+Revision history for Perl extension Date::WeekOfYear.
+
+0.01  Mon Aug  9 19:28:57 2004
+	- original version; created by h2xs 1.21 with options
+		-AX -n Date::WeekOfYear
+

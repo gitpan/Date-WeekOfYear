@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Date::WeekOfYear - Simple routine to return the week of the year</title>
+<link rev="made" href="mailto:" />
+</head>
+
+<body style="background-color: white">
+
+<p><a name="__index__"></a></p>
+<!-- INDEX BEGIN -->
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<ul>
+
+		<li><a href="#export">EXPORT</a></li>
+	</ul>
+
+	<li><a href="#known_issues">KNOWN ISSUES</a></li>
+	<li><a href="#author">AUTHOR</a></li>
+	<li><a href="#see_also">SEE ALSO</a></li>
+	<li><a href="#log">Log</a></li>
+	<ul>
+
+		<li><a href="#cvs_id">CVS ID</a></li>
+	</ul>
+
+</ul>
+<!-- INDEX END -->
+
+<hr />
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>Date::WeekOfYear - Simple routine to return the week of the year (as well as the year)</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<pre>
+  use Date::WeekOfYear;</pre>
+<pre>
+  # Get the week number (and year for the end/start of year transitions)
+  my ($wkNo, $year) = WeekOfYear();</pre>
+<pre>
+  # Use the data for someThing ...
+  my $logFile = &quot;/someDir/$year/someApp_$wkNo.log&quot;</pre>
+<pre>
+  # Only want the week number, don't care which year in the week around
+  # the end/start of the year !
+  my $weekNo = WeekOfYear();</pre>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>Date::WeekOfYear is small and efficient.  The only purpose is to return the
+week of the year.  This can be called in either a scalar or list context.</p>
+<p>In a scalar context, just the week number is returned (the year starts at week 1).</p>
+<p>In a list context, both the week number and the year (YYYY) are returned.  This
+ensures that you know which year the week number relates too.  This is only an
+issue in the week where the year changes (ie depending on the day you can be in
+either week 52  or week 1.</p>
+<p>Note there if you are after other date related functions then there are plenty
+of other Date::* modules on CPAN provide the functionality of this module in
+addition other ...</p>
+<p>
+</p>
+<h2><a name="export">EXPORT</a></h2>
+<p>WeekOfYear.  That's it, nice and simple</p>
+<p>
+</p>
+<hr />
+<h1><a name="known_issues">KNOWN ISSUES</a></h1>
+<p>None, however please contact the author at <a href="mailto:gng@cpan.org">gng@cpan.org</a> should you
+find any problems and I will endevour to resolve then as soon as
+possible</p>
+<p>
+</p>
+<hr />
+<h1><a name="author">AUTHOR</a></h1>
+<pre>
+ Greg George, IT Technology Solutions P/L, Australia
+ Mobile: +61-404-892-159, Email: gng@cpan.org</pre>
+<p>
+</p>
+<hr />
+<h1><a name="see_also">SEE ALSO</a></h1>
+<p>Date::Parse or check CPAN <a href="http://search.cpan.org/search?query=Date&mode=all">http://search.cpan.org/search?query=Date&mode=all</a></p>
+<p>
+</p>
+<hr />
+<h1><a name="log">Log</a></h1>
+<pre>
+ $Log: WeekOfYear.pm,v $
+ Revision 1.1.1.1  2004/08/09 11:07:15  Greg
+ - Initial release to CPAN</pre>
+<p>
+</p>
+<h2><a name="cvs_id">CVS ID</a></h2>
+<p>$Id: WeekOfYear.pm,v 1.1.1.1 2004/08/09 11:07:15 Greg Exp $</p>
+
+</body>
+
+</html>
