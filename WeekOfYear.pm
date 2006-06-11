@@ -15,28 +15,28 @@ require Exporter;
 our @ISA = qw(Exporter);
 
 our %EXPORT_TAGS = ( 'all' => [ qw(
-	WeekOfYear
+    WeekOfYear
 ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
-	WeekOfYear
+    WeekOfYear
 );
-our $VERSION = sprintf("%d.%02d", q'$Revision: 1.1.1.1 $' =~ /(\d+)\.(\d+)/);
+our $VERSION = sprintf("%d.%02d", q'$Revision: 1.2 $' =~ /(\d+)\.(\d+)/);
 
 
-sub weekOfYear
+sub WeekOfYear
 {
-	#-- Current day & time
-	my ($tm_year, $wkday, $yrday) = (localtime())[5..7];
+    #-- Current day & time
+    my ($tm_year, $wkday, $yrday) = (localtime())[5..7];
 
-	my $startOfYear = timelocal(0, 0, 0, 1, 0, $tm_year);
-	my ($soywkday) = (localtime($startOfYear))[6];
+    my $startOfYear = timelocal(0, 0, 0, 1, 0, $tm_year);
+    my ($soywkday) = (localtime($startOfYear))[6];
 
-	my $wkNo = int($yrday / 7) + 1 + (($wkday < $soywkday)? 1:0);
+    my $wkNo = int($yrday / 7) + 1 + (($wkday < $soywkday)? 1:0);
 
-	return wantarray ? ($wkNo, $tm_year + 1900) : $wkNo;
+    return wantarray ? ($wkNo, $tm_year + 1900) : $wkNo;
 }
 
 
@@ -100,13 +100,16 @@ Date::Parse or check CPAN http://search.cpan.org/search?query=Date&mode=all
 
 =head1 Log
 
- $Log: WeekOfYear.pm,v $
- Revision 1.1.1.1  2004/08/09 11:07:15  Greg
- - Initial release to CPAN
+$Log: WeekOfYear.pm,v $
+Revision 1.2  2006/06/11 02:28:55  Greg
+- Correction to name of function
+
+Revision 1.1.1.1  2004/08/09 11:07:15  Greg
+- Initial release to CPAN
 
 
 =head2 CVS ID
 
-$Id: WeekOfYear.pm,v 1.1.1.1 2004/08/09 11:07:15 Greg Exp $
+$Id: WeekOfYear.pm,v 1.2 2006/06/11 02:28:55 Greg Exp $
 
 =cut
