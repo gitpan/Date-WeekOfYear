@@ -5,7 +5,7 @@
 #
 package Date::WeekOfYear;
 
-use 5.000;
+use 5.006;
 use strict;
 use warnings;
 use Time::Local;
@@ -14,22 +14,22 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 
-our %EXPORT_TAGS = ( 'all' => [ qw(
-    WeekOfYear
-) ] );
+our %EXPORT_TAGS = ( 'all' => [ qw( WeekOfYear ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
     WeekOfYear
 );
-our $VERSION = sprintf("%d.%02d", q'$Revision: 1.2 $' =~ /(\d+)\.(\d+)/);
+our $VERSION = sprintf("%d.%02d", q'$Revision: 1.3 $' =~ /(\d+)\.(\d+)/);
 
 
 sub WeekOfYear
 {
+    my $time = $_[0] || time;
+
     #-- Current day & time
-    my ($tm_year, $wkday, $yrday) = (localtime())[5..7];
+    my ($tm_year, $wkday, $yrday) = (localtime($time))[5..7];
 
     my $startOfYear = timelocal(0, 0, 0, 1, 0, $tm_year);
     my ($soywkday) = (localtime($startOfYear))[6];
@@ -42,7 +42,6 @@ sub WeekOfYear
 
 1;
 __END__
-# Below is stub documentation for your module. You better edit it!
 
 =head1 NAME
 
@@ -54,6 +53,9 @@ Date::WeekOfYear - Simple routine to return the week of the year (as well as the
 
   # Get the week number (and year for the end/start of year transitions)
   my ($wkNo, $year) = WeekOfYear();
+
+  # Get the week number for the time passed in time_stamp
+  my ($wkNo, $year) = WeekOfYear($time_stamp);
 
   # Use the data for someThing ...
   my $logFile = "/someDir/$year/someApp_$wkNo.log"
@@ -79,7 +81,9 @@ Note there if you are after other date related functions then there are plenty
 of other Date::* modules on CPAN provide the functionality of this module in
 addition other ...
 
-=head2 EXPORT
+=head1 EXPORT
+
+=head2 WeekOfYear
 
 WeekOfYear.  That's it, nice and simple
 
@@ -101,6 +105,12 @@ Date::Parse or check CPAN http://search.cpan.org/search?query=Date&mode=all
 =head1 Log
 
 $Log: WeekOfYear.pm,v $
+Revision 1.3  2009/06/20 09:31:39  Greg
+- Real tests with Test::More
+- Tests moved to t/
+- Better Makefile.PL
+- Now WeekOfYear can take an argument (unixtime)
+
 Revision 1.2  2006/06/11 02:28:55  Greg
 - Correction to name of function
 
@@ -110,6 +120,6 @@ Revision 1.1.1.1  2004/08/09 11:07:15  Greg
 
 =head2 CVS ID
 
-$Id: WeekOfYear.pm,v 1.2 2006/06/11 02:28:55 Greg Exp $
+$Id: WeekOfYear.pm,v 1.3 2009/06/20 09:31:39 Greg Exp $
 
 =cut
