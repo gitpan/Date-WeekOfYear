@@ -21,7 +21,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
     WeekOfYear
 );
-our $VERSION = sprintf("%d.%02d", q'$Revision: 1.3 $' =~ /(\d+)\.(\d+)/);
+our $VERSION = sprintf("%d.%02d", q'$Revision: 1.4 $' =~ /(\d+)\.(\d+)/);
 
 
 sub WeekOfYear
@@ -102,9 +102,16 @@ possible
 
 Date::Parse or check CPAN http://search.cpan.org/search?query=Date&mode=all
 
+=head1 ACKNOWLEDGEMENTS
+
+Thanks to Alexandr Ciornii for the V1.3 updates
+
 =head1 Log
 
 $Log: WeekOfYear.pm,v $
+Revision 1.4  2009/06/21 07:29:05  Greg
+- Added ACKNOWLEDGEMENTS
+
 Revision 1.3  2009/06/20 09:31:39  Greg
 - Real tests with Test::More
 - Tests moved to t/
@@ -120,6 +127,6 @@ Revision 1.1.1.1  2004/08/09 11:07:15  Greg
 
 =head2 CVS ID
 
-$Id: WeekOfYear.pm,v 1.3 2009/06/20 09:31:39 Greg Exp $
+$Id: WeekOfYear.pm,v 1.4 2009/06/21 07:29:05 Greg Exp $
 
 =cut
