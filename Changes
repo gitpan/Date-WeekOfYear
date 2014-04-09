@@ -1,5 +1,9 @@
 Revision history for Perl extension Date::WeekOfYear.
 
+1.06  2014-04-09
+ - Allow extended date coverage - past dates handled by localtime - using hash ref argument year, month, day
+ - Added mode for ISO 8601 output YYYY-Wxx
+
 1.05  2014-03-16
  - Updated to conform to ISO 8601
  - Added compatability flag to allow backwards usage
